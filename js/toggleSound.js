@@ -1,13 +1,13 @@
-// Assume que existe o elemento audio e o botão com ícone
+// Assume that the audio element and the button with icon exist
 
 function toggleSound() {
     const audio = document.getElementById("plimSound");
     const soundIcon = document.getElementById("soundIcon");
 
-    // Alterna o mute
+    // Toggle mute
     audio.muted = !audio.muted;
 
-    // Atualiza o ícone conforme o estado
+    // Update the icon according to the state
     if (audio.muted) {
         soundIcon.classList.remove("fa-volume-up");
         soundIcon.classList.add("fa-volume-mute");
@@ -16,11 +16,11 @@ function toggleSound() {
         soundIcon.classList.add("fa-volume-up");
     }
 
-    // Salva o estado no sessionStorage
+    // Save the state in sessionStorage
     sessionStorage.setItem("audioMuted", audio.muted);
 }
 
-// Função para aplicar o estado salvo no carregamento da página
+// Function to apply the saved state when the page loads
 function applySavedSoundState() {
     const audio = document.getElementById("plimSound");
     const soundIcon = document.getElementById("soundIcon");
@@ -28,10 +28,10 @@ function applySavedSoundState() {
     const muted = sessionStorage.getItem("audioMuted");
 
     if (muted !== null) {
-        // Como sessionStorage salva string, converte para boolean
+        // Since sessionStorage saves strings, convert to boolean
         audio.muted = (muted === 'true');
 
-        // Atualiza o ícone conforme o estado salvo
+        // Update the icon according to the saved state
         if (audio.muted) {
             soundIcon.classList.remove("fa-volume-up");
             soundIcon.classList.add("fa-volume-mute");
@@ -42,5 +42,5 @@ function applySavedSoundState() {
     }
 }
 
-// Chama essa função assim que o script carregar, para ajustar o estado ao carregar a página
+// Call this function as soon as the script loads, to adjust the state when the page loads
 applySavedSoundState();
