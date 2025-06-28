@@ -18,7 +18,7 @@ async function init() {
     maxPredictions = model.getTotalClasses();
 
     // Setup webcam (400x400 px, horizontal flip for mirror effect)
-    const size = 200;
+    const size = 400;
     const flip = true;
     webcam = new tmPose.Webcam(size, size, flip);
     await webcam.setup();    // request permission and setup webcam
