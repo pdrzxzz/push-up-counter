@@ -2,47 +2,69 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Push Up Counter</title>
-    <link rel="stylesheet" href="style.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- TensorFlow.js and Teachable Machine Pose Library -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
-
 </head>
 
 <body>
-
+    <!-- App Title -->
     <h1>Push Up Counter</h1>
 
+    <!-- Controls: Start/Pause and Restart Buttons -->
     <div class="controls">
-        <button type="button" onclick="init()">Start</button>
-        <button type="button" onclick="location.reload()">Restart</button>
+        <button id="startPauseBtn" type="button" onclick="toggleStartPause()">
+            <i id="startPauseIcon" class="fas fa-play"></i>
+            <span id="startPauseText">Start</span>
+        </button>
+        <button type="button" onclick="location.reload()">
+            <i class="fas fa-rotate-right"></i>
+            <span>Restart</span>
+        </button>
     </div>
 
-    <div class="canvas-container">
+    <!-- Loading message shown while the webcam/model loads -->
+    <div id="loadingMessage" style="display: none; font-weight: bold; text-align: center;">
+        <i class="fas fa-spinner fa-spin" style="font-size: 2rem; color: #00ffcc;"></i>
+    </div>
+
+    <!-- Canvas container: Shows webcam feed and pose skeleton -->
+    <div id="canvas-container">
         <canvas id="canvas"></canvas>
     </div>
 
+    <!-- Push-up counter display -->
     <div class="counter-container">
         <span>Counter:</span>
         <span id="counter">0</span>
     </div>
 
-    <audio id="plimSound" src="plim.mp3"></audio>
-    <button id="soundToggle" onclick="toggleSound()" style="font-size: 24px;">
+    <!-- Audio element for plim sound -->
+    <audio id="plimSound" src="audio/plim.mp3" preload="auto"></audio>
+
+    <!-- Sound toggle button -->
+    <button id="soundToggle" onclick="toggleSound()">
         <i id="soundIcon" class="fas fa-volume-up"></i>
     </button>
 
-
+    <!-- Container for prediction labels -->
     <div id="label-container"></div>
 
-
-    <script src="playSound.js"></script>
-    <script src="toggleSound.js"></script>
-    <script src="script.js"></script>
-
+    <!-- Your external JS scripts -->
+    <script src="js/playSound.js"></script>
+    <script src="js/toggleSound.js"></script>
+    <script src="js/toggleStartPause.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

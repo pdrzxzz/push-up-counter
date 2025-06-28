@@ -1,0 +1,125 @@
+/* ================================
+   CSS Variables (colors, fonts)
+   ================================ */
+:root {
+    --color-primary: #00ffcc;
+    --color-primary-dark: #00ccaa;
+    --color-background: #111;
+    --color-background-canvas: #222;
+    --color-text: #fff;
+    --color-text-muted: #aaa;
+    --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ================================
+   Reset & Base Styles
+   ================================ */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family-base);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* ================================
+   Typography
+   ================================ */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+span {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+#counter {
+    font-weight: bold;
+    font-size: 2rem;
+    margin-left: 0.5rem;
+    color: var(--color-text);
+}
+
+/* ================================
+   Buttons
+   ================================ */
+button {
+    margin: 0.5rem;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--color-primary);
+    color: #000;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--color-primary-dark);
+}
+
+i {
+    font-size: 20px;
+}
+
+/* Sound button - fixed position */
+#soundToggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 28px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--color-text);
+}
+
+/* ================================
+   Canvas and Container
+   ================================ */
+canvas {
+    width: 400px;
+    height: 400px;
+    margin-top: 1rem;
+    border: 3px solid var(--color-primary);
+    border-radius: 12px;
+    background-color: var(--color-background-canvas);
+}
+
+/* Prediction labels container */
+#label-container {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+}
+
+/* ================================
+   Specific Containers
+   ================================ */
+.counter-container {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+/* ================================
+   Loading Message
+   ================================ */
+#loadingMessage {
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
